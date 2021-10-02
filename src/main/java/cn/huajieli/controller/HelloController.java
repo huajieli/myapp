@@ -1,5 +1,6 @@
 package cn.huajieli.controller;
 
+import cn.huajieli.log.MyLog;
 import cn.huajieli.service.HelloService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,8 +18,9 @@ public class HelloController {
     @Autowired
     private HelloService helloService;
 
+    @MyLog(desc = "这是方法的描述")
     @GetMapping("/say")
-    public String sayHello(){
+    public String sayHello() {
         return helloService.sayHello();
     }
 }
